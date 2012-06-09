@@ -1,4 +1,4 @@
 # coding: utf-8
 
-class Admin::HomeController < ApplicationController
+class Admin::HomeController < Admin::ApplicationController
 end
