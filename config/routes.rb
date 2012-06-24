@@ -3,7 +3,7 @@ Bojovs::Application.routes.draw do
     devise_for :users, controllers: { sessions: 'admin/sessions' }, class_name: 'Admin::User',
       path_names: { sign_in: 'signin', sign_out: 'signout' }
 
-    root to: 'home#index'
+    root to: 'dashboard#index'
   end
 
   root to: 'home#index'
