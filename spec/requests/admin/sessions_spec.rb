@@ -11,7 +11,7 @@ feature 'ログイン処理' do
 
   context 'ログインボタンを押す' do
     before do
-      within('#devise_sessions.new') do
+      within('#admin_sessions.new') do
         fill_in 'admin_user_email', with: 'bojovs@gmail.com'
         fill_in 'admin_user_password', with: 'svojob'
       end
