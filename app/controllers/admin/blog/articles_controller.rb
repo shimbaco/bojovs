@@ -6,13 +6,27 @@ class Admin::Blog::ArticlesController < Admin::ApplicationController
   end
 
   def new
-    @blog_article = ::Blog::Article.new
+    @article = ::Blog::Article.new
   end
 
   def create
-    @blog_article = ::Blog::Article.new(params[:blog_article])
+    @article = ::Blog::Article.new(params[:blog_article])
 
-    if @blog_article.save
+    if @article.save
+      redirect_to admin_blog_articles_path
+    end
+  end
+
+  def edit
+    @article = ::Blog::Article.find(params[:id])
+  end
+
+  def update
+    @article = ::Blog::Article.find(params[:id])
+
+    if @article.update_attributes(params[:blog_article])
+      flash[:notice] = '保存しました。'
+
       redirect_to admin_blog_articles_path
     end
   end

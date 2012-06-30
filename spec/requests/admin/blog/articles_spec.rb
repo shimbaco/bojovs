@@ -46,4 +46,26 @@ describe '管理画面 記事機能' do
       find('table.articles tbody').find('tr:nth-child(2)').should have_content('hello-world-2')
     end
   end
+
+  describe '編集' do
+    before do
+      article = FactoryGirl.create(:blog_article)
+
+      visit "/admin/blog/articles/#{article.id}/edit"
+    end
+
+    context '保存ボタンを押す' do
+      before do
+        within('#admin_blog_articles.edit') do
+          fill_in 'blog_article_slug', with: 'new-hello-world'
+        end
+
+        click_button '保存'
+      end
+
+      it '記事が更新されている' do
+        Blog::Article.first.slug.should == 'new-hello-world'
+      end
+    end
+  end
 end
