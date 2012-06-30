@@ -25,6 +25,7 @@ end
 group :development, :test do
   gem 'capybara', '1.1.2'
   gem 'capybara-webkit', '0.12.1'
+  gem 'database_cleaner', '0.8.0'
   gem 'factory_girl_rails', '3.3.0'
   gem 'rspec-rails', '2.10.1'
   gem 'spork-rails', '3.2.0'

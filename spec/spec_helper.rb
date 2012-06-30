@@ -7,6 +7,7 @@ Spork.prefork do
   require 'rspec/rails'
   require 'rspec/autorun'
   require 'capybara/rspec'
+  require 'database_cleaner'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -28,9 +29,16 @@ Spork.prefork do
     config.include Devise::TestHelpers, type: :controller
     config.include Warden::Test::Helpers
     Warden.test_mode!
+
+    DatabaseCleaner.strategy = :truncation
   end
 end
 
 Spork.each_run do
-  FactoryGirl.reload
+  RSpec.configure do |config|
+    config.after(:each) do
+      DatabaseCleaner.clean
+      FactoryGirl.reload
+    end
+  end
 end
