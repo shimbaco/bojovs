@@ -8,19 +8,19 @@ table.articles.table.table-condensed
       th 公開日
       th 作成日
       th 更新日
-      th 編集
+      th 表示
       th 削除
   tbody
     - @articles.each do |a|
       tr
-        td = link_to a.title, '', target: '_blank'
+        td = link_to a.title, edit_admin_blog_article_path(a)
         td = a.slug
         td = a.published_at
         td = a.created_at
         td = a.updated_at
         td
-          = link_to edit_admin_blog_article_path(a) do
-            i.icon-pencil
+          = link_to '', class: 'btn btn-mini', target: '_blank' do
+            i.icon-share
         td
-          = link_to admin_blog_article_path(a), method: :delete, confirm: '削除しますか?' do
+          = link_to admin_blog_article_path(a), class: 'btn btn-mini', method: :delete, confirm: '削除しますか?' do
             i.icon-remove
