@@ -14,7 +14,6 @@ class Admin::Blog::ArticlesController < Admin::ApplicationController
 
     if @article.save
       flash[:notice] = '記事を作成しました。'
-
       redirect_to admin_blog_articles_path
     end
   end
@@ -28,8 +27,16 @@ class Admin::Blog::ArticlesController < Admin::ApplicationController
 
     if @article.update_attributes(params[:blog_article])
       flash[:notice] = '記事を更新しました。'
-
       redirect_to admin_blog_articles_path
     end
+  end
+
+  def destroy
+    @article = ::Blog::Article.find(params[:id])
+
+    @article.destroy
+
+    flash[:notice] = '記事を削除しました。'
+    redirect_to admin_blog_articles_path
   end
 end

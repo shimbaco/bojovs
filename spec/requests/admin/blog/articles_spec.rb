@@ -68,4 +68,26 @@ describe '管理画面 記事機能' do
       end
     end
   end
+
+  describe '削除' do
+    before do
+      FactoryGirl.create(:blog_article)
+
+      visit '/admin/blog/articles'
+    end
+
+    context '削除ボタンを押す' do
+      before do
+        find('table.articles td.delete a').click
+      end
+
+      it '記事が削除される' do
+        Blog::Article.count.should == 0
+      end
+
+      it '削除を知らせるflashが表示される' do
+        page.find('.alert').should have_content('記事を削除しました。')
+      end
+    end
+  end
 end

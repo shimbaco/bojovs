@@ -18,9 +18,9 @@ table.articles.table.table-condensed
         td = a.published_at
         td = a.created_at
         td = a.updated_at
-        td
+        td.show
           = link_to '', class: 'btn btn-mini', target: '_blank' do
             i.icon-share
-        td
+        td.delete
           = link_to admin_blog_article_path(a), class: 'btn btn-mini', method: :delete, confirm: '削除しますか?' do
             i.icon-remove
