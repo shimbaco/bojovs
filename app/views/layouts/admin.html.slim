@@ -27,7 +27,10 @@ html lang="ja"
               li= link_to "Link 3", "/path3"
 
     .container-fluid
-
+      - if flash[:notice]
+        .alert.alert-info = flash[:notice]
+      - if flash[:error]
+        .alert.alert-error = flash[:error]
       .row-fluid
         .span3
           .well.sidebar-nav
