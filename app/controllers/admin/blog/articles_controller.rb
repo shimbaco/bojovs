@@ -1,6 +1,10 @@
 # coding: utf-8
 
 class Admin::Blog::ArticlesController < Admin::ApplicationController
+  def index
+    @articles = ::Blog::Article.all
+  end
+
   def new
     @blog_article = ::Blog::Article.new
   end

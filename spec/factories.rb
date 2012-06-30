@@ -5,10 +5,14 @@ FactoryGirl.define do
     password 'svojob'
   end
 
-  factory :blog_article do
-    slug 'hello-world'
+  sequence :slug do |n|
+    "hello-world-#{n}"
+  end
+
+  factory :blog_article, class: Blog::Article do
+    slug
     title 'Hello World'
-    body 'This is my first blog article.'
+    body 'This is my blog article.'
     published_at '2012/06/24'
   end
 end
