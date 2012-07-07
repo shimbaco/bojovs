@@ -22,6 +22,9 @@ table.articles.table.table-condensed
           - if a.public?
             = link_to blog_articles_path(*a.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
               i.icon-share
+          - else
+            .btn.btn-mini.disabled
+              i.icon-share
         td.delete
           = link_to admin_blog_article_path(a), class: 'btn btn-mini', method: :delete, confirm: '削除しますか?' do
             i.icon-remove
