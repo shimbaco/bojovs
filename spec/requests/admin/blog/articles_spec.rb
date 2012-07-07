@@ -33,7 +33,8 @@ describe '管理画面 記事機能' do
 
   describe '一覧' do
     before do
-      3.times { FactoryGirl.create(:blog_article) }
+      2.times { FactoryGirl.create(:blog_article) }
+      FactoryGirl.create(:blog_article, published_at: nil)
 
       visit '/admin/blog/articles'
     end
@@ -44,6 +45,11 @@ describe '管理画面 記事機能' do
 
     it '2つ目の記事のslugが "hello-world-2" になっている' do
       find('table.articles tbody').find('tr:nth-child(2)').should have_content('hello-world-2')
+    end
+
+    it '3つ目の記事の「表示」項目が消えている' do
+      find('table.articles tbody').find('tr:nth-child(3)').find('td:nth-child(6)')
+        .has_css?('a').should be_false
     end
   end
 
