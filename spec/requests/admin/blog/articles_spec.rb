@@ -61,7 +61,7 @@ describe '管理画面 記事機能' do
   describe '一覧' do
     before do
       2.times { FactoryGirl.create(:blog_article) }
-      FactoryGirl.create(:blog_article, published_at: nil)
+      FactoryGirl.create(:blog_article, slug: nil)
 
       visit '/admin/blog/articles'
     end
@@ -130,26 +130,6 @@ describe '管理画面 記事機能' do
 
           it 'published_atの値は変化しない' do
             Blog::Article.first.published_at.should == @article.published_at
-          end
-        end
-      end
-
-      context '非公開状態にして' do
-        context '保存ボタンを押す' do
-          before do
-            within('#admin_blog_articles.edit') do
-              fill_in 'blog_article_slug', with: ''
-            end
-
-            click_button '保存'
-          end
-
-          it '記事が更新されている' do
-            Blog::Article.first.slug.should == ''
-          end
-
-          it 'published_atの値が空になる' do
-            Blog::Article.first.published_at.should be_nil
           end
         end
       end

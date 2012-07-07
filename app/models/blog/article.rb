@@ -2,20 +2,12 @@ class Blog::Article < ActiveRecord::Base
   attr_accessible :body, :published_at, :slug, :title
 
 
-  def published?
-    published_at.present?
+  def public?
+    slug.present?
   end
 
   def set_published_at!(params)
-    if params[:slug].present? && published_at.blank?
-      self.published_at = DateTime.now
-
-      return
-    elsif params[:slug].blank? && published_at.present?
-      self.published_at = nil
-
-      return
-    end
+    self.published_at = DateTime.now if params[:slug].present? && published_at.blank?
   end
 
   def url_params
