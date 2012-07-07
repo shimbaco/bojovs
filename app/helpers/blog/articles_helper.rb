@@ -1,7 +1,8 @@
 module Blog::ArticlesHelper
   def markdown(body)
-    mk = ::Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-      autolink: true, space_after_headers: true)
+    rndr = Redcarpet::Render::HTML.new(hard_wrap: true, with_toc_data: true)
+    mk = ::Redcarpet::Markdown.new(rndr, autolink: true, fenced_code_blocks: true,
+      space_after_headers: true)
 
     mk.render(body)
   end
