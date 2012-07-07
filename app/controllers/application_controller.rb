@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
 
   private
 
@@ -16,5 +18,9 @@ class ApplicationController < ActionController::Base
     else
       'application'
     end
+  end
+
+  def not_found
+    render text: '404 Not Found', status: 404
   end
 end
