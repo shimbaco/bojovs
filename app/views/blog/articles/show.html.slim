@@ -1,5 +1,5 @@
-h2
+h1
   = @article.title
 
 .body
-  = @article.body
+  = markdown(@article.body).html_safe

@@ -12,7 +12,7 @@ describe 'ブログ記事' do
     it '記事が表示される' do
       visit '/2012/06/01/hello-world-1'
 
-      page.find('h2').should have_content('Hello World 1')
+      page.find('h1').should have_content('Hello World 1')
     end
 
     it '404を返す' do
