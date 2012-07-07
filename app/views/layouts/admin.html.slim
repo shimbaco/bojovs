@@ -26,21 +26,13 @@ html lang="ja"
               li= link_to "Link 2", "/path2"
               li= link_to "Link 3", "/path3"
 
-    .container-fluid
+    .container
       - if flash[:notice]
         .alert.alert-info = flash[:notice]
       - if flash[:error]
         .alert.alert-error = flash[:error]
-      .row-fluid
-        .span3
-          .well.sidebar-nav
-            ul.nav.nav-list
-              li.nav-header Sidebar
-              li= link_to "Link 1", "/path1"
-              li= link_to "Link 2", "/path2"
-              li= link_to "Link 3", "/path3"
-        .span9
-          = yield
+      .row
+        = yield
     
       footer
         p &copy; Company 2012

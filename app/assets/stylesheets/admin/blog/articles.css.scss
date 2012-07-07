@@ -1,3 +1,13 @@
-// Place all the styles related to the admin/blog/articles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#admin_blog_articles {
+  &.new, &.edit, &.create, &.update {
+    form {
+      #blog_article_title, #blog_article_body {
+        width: 100%;
+      }
+      
+      .title, .slug {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
