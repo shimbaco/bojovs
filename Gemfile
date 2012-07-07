@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'awesome_print', '1.0.2'
   gem 'growl', '1.0.3'
   gem 'guard-rspec', '1.0.0'
   gem 'guard-spork', '1.0.0'
