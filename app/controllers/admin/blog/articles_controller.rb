@@ -12,6 +12,8 @@ class Admin::Blog::ArticlesController < Admin::ApplicationController
   def create
     @article = ::Blog::Article.new(params[:blog_article])
 
+    @article.set_published_at!(params[:blog_article])
+
     if @article.save
       flash[:notice] = '記事を作成しました。'
       redirect_to admin_blog_articles_path
@@ -24,6 +26,8 @@ class Admin::Blog::ArticlesController < Admin::ApplicationController
 
   def update
     @article = ::Blog::Article.find(params[:id])
+
+    @article.set_published_at!(params[:blog_article])
 
     if @article.update_attributes(params[:blog_article])
       flash[:notice] = '記事を更新しました。'

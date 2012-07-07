@@ -14,19 +14,46 @@ describe '管理画面 記事機能' do
       visit '/admin/blog/articles/new'
     end
 
-    context '保存ボタンを押す' do
-      before do
-        within('#admin_blog_articles.new') do
-          fill_in 'blog_article_slug', with: 'hello-world'
-          fill_in 'blog_article_title', with: 'こんにちは世界'
-          fill_in 'blog_article_body', with: 'ブログはじめました'
+    context '非公開記事' do
+      context 'slugには何も入力せず保存ボタンを押す' do
+        before do
+          within('#admin_blog_articles.new') do
+            fill_in 'blog_article_title', with: 'こんにちは世界'
+            fill_in 'blog_article_body', with: 'ブログはじめました'
+          end
+
+          click_button '保存'
         end
 
-        click_button '保存'
-      end
+        it '保存できる' do
+          Blog::Article.count.should == 1
+        end
 
-      it '保存できる' do
-        Blog::Article.count.should == 1
+        it 'published_atには日付は保存されない' do
+          Blog::Article.first.published_at.should be_nil
+        end
+      end
+    end
+
+    context '公開記事' do
+      context 'slugも入力して保存ボタンを押す' do
+        before do
+          within('#admin_blog_articles.new') do
+            fill_in 'blog_article_slug', with: 'hello-world'
+            fill_in 'blog_article_title', with: 'こんにちは世界'
+            fill_in 'blog_article_body', with: 'ブログはじめました'
+          end
+
+          click_button '保存'
+        end
+
+        it '保存できる' do
+          Blog::Article.count.should == 1
+        end
+
+        it 'published_atに日付が保存される' do
+          Blog::Article.first.published_at.should_not be_nil
+        end
       end
     end
   end
@@ -54,23 +81,77 @@ describe '管理画面 記事機能' do
   end
 
   describe '編集' do
-    before do
-      article = FactoryGirl.create(:blog_article)
-
-      visit "/admin/blog/articles/#{article.id}/edit"
-    end
-
-    context '保存ボタンを押す' do
+    context '非公開記事' do
       before do
-        within('#admin_blog_articles.edit') do
-          fill_in 'blog_article_slug', with: 'new-hello-world'
-        end
+        article = FactoryGirl.create(:blog_article, slug: nil, published_at: nil)
 
-        click_button '保存'
+        visit "/admin/blog/articles/#{article.id}/edit"
       end
 
-      it '記事が更新されている' do
-        Blog::Article.first.slug.should == 'new-hello-world'
+      context 'slugを入力して保存ボタンを押す' do
+        before do
+          within('#admin_blog_articles.edit') do
+            fill_in 'blog_article_slug', with: 'hello-world'
+          end
+
+          click_button '保存'
+        end
+
+        it '記事が更新されている' do
+          Blog::Article.first.slug.should == 'hello-world'
+        end
+
+        it 'published_atに日付が保存される' do
+          Blog::Article.first.published_at.should_not be_nil
+        end
+      end
+    end
+
+    context '公開記事' do
+      before do
+        @article = FactoryGirl.create(:blog_article)
+
+        visit "/admin/blog/articles/#{@article.id}/edit"
+      end
+
+      context '公開状態のまま' do
+        context '保存ボタンを押す' do
+          before do
+            within('#admin_blog_articles.edit') do
+              fill_in 'blog_article_slug', with: 'new-hello-world'
+            end
+
+            click_button '保存'
+          end
+
+          it '記事が更新されている' do
+            Blog::Article.first.slug.should == 'new-hello-world'
+          end
+
+          it 'published_atの値は変化しない' do
+            Blog::Article.first.published_at.should == @article.published_at
+          end
+        end
+      end
+
+      context '非公開状態にして' do
+        context '保存ボタンを押す' do
+          before do
+            within('#admin_blog_articles.edit') do
+              fill_in 'blog_article_slug', with: ''
+            end
+
+            click_button '保存'
+          end
+
+          it '記事が更新されている' do
+            Blog::Article.first.slug.should == ''
+          end
+
+          it 'published_atの値が空になる' do
+            Blog::Article.first.published_at.should be_nil
+          end
+        end
       end
     end
   end

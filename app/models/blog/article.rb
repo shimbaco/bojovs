@@ -6,6 +6,18 @@ class Blog::Article < ActiveRecord::Base
     published_at.present?
   end
 
+  def set_published_at!(params)
+    if params[:slug].present? && published_at.blank?
+      self.published_at = DateTime.now
+
+      return
+    elsif params[:slug].blank? && published_at.present?
+      self.published_at = nil
+
+      return
+    end
+  end
+
   def url_params
     year = published_at.year.to_s
     month = sprintf('%02d', published_at.month.to_s)
