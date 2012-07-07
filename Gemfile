@@ -13,6 +13,7 @@ gem 'devise', '2.1.0'
 gem 'mysql2', '0.3.11'
 
 # Views
+gem 'pygments.rb', '0.2.13'
 gem 'slim-rails', '1.0.3'
 
 
