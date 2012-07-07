@@ -7,7 +7,7 @@ class Blog::Article < ActiveRecord::Base
   end
 
   def set_published_at!(params)
-    self.published_at = DateTime.now if params[:slug].present? && published_at.blank?
+    self.published_at = Date.today if params[:slug].present? && published_at.blank?
   end
 
   def url_params
