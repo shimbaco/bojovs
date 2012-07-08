@@ -1,8 +1,9 @@
+require File.expand_path("#{Rails.root}/lib/bojovs/markdown")
+
 module Blog::ArticlesHelper
   def markdown(body)
-    rndr = Redcarpet::Render::HTML.new(hard_wrap: true, with_toc_data: true)
-    mk = ::Redcarpet::Markdown.new(rndr, autolink: true, fenced_code_blocks: true,
-      space_after_headers: true)
+    rndr = ::Bojovs::Markdown::HTMLPygments.new(Bojovs::Markdown.html_options)
+    mk = ::Bojovs::Markdown.markdownify(rndr)
 
     mk.render(body)
   end
