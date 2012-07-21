@@ -20,7 +20,7 @@ table.notes.table.table-condensed
         td = a.updated_at
         td.show
           - if a.public?
-            = link_to notes_path(*a.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
+            = link_to note_path(*a.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
               i.icon-share
           - else
             .btn.btn-mini.disabled
