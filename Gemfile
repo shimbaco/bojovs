@@ -30,6 +30,7 @@ group :development, :test do
   gem 'capybara-webkit', '0.12.1'
   gem 'database_cleaner', '0.8.0'
   gem 'factory_girl_rails', '3.3.0'
+  gem 'nyan-cat-formatter', '0.0.7'
   gem 'rspec-rails', '2.10.1'
   gem 'spork-rails', '3.2.0'
 end
