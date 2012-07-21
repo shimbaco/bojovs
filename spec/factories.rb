@@ -13,10 +13,10 @@ FactoryGirl.define do
     "Hello World #{n}"
   end
 
-  factory :article, class: Article do
+  factory :note, class: Note do
     slug
     title
-    body 'This is my blog article.'
+    body 'This is my blog note.'
     published_at '2012/06/24'
   end
 end

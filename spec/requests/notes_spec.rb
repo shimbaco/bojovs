@@ -5,8 +5,8 @@ require 'spec_helper'
 describe 'ブログ記事' do
   describe '詳細' do
     before do
-      FactoryGirl.create(:article, published_at: '2012/06/01')
-      FactoryGirl.create(:article, published_at: '2012/07/01')
+      FactoryGirl.create(:note, published_at: '2012/06/01')
+      FactoryGirl.create(:note, published_at: '2012/07/01')
     end
 
     it '記事が表示される' do

@@ -1,4 +1,4 @@
-class Article < ActiveRecord::Base
+class Note < ActiveRecord::Base
   attr_accessible :body, :published_at, :slug, :title
 
 

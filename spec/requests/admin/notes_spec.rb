@@ -11,26 +11,26 @@ describe '管理画面 記事機能' do
 
   describe '投稿' do
     before do
-      visit '/admin/articles/new'
+      visit '/admin/notes/new'
     end
 
     context '非公開記事' do
       context 'slugには何も入力せず保存ボタンを押す' do
         before do
-          within('#admin_articles.new') do
-            fill_in 'article_title', with: 'こんにちは世界'
-            fill_in 'article_body', with: 'ブログはじめました'
+          within('#admin_notes.new') do
+            fill_in 'note_title', with: 'こんにちは世界'
+            fill_in 'note_body', with: 'ブログはじめました'
           end
 
           click_button '保存'
         end
 
         it '保存できる' do
-          Article.count.should == 1
+          Note.count.should == 1
         end
 
         it 'published_atには日付は保存されない' do
-          Article.first.published_at.should be_nil
+          Note.first.published_at.should be_nil
         end
       end
     end
@@ -38,21 +38,21 @@ describe '管理画面 記事機能' do
     context '公開記事' do
       context 'slugも入力して保存ボタンを押す' do
         before do
-          within('#admin_articles.new') do
-            fill_in 'article_slug', with: 'hello-world'
-            fill_in 'article_title', with: 'こんにちは世界'
-            fill_in 'article_body', with: 'ブログはじめました'
+          within('#admin_notes.new') do
+            fill_in 'note_slug', with: 'hello-world'
+            fill_in 'note_title', with: 'こんにちは世界'
+            fill_in 'note_body', with: 'ブログはじめました'
           end
 
           click_button '保存'
         end
 
         it '保存できる' do
-          Article.count.should == 1
+          Note.count.should == 1
         end
 
         it 'published_atに日付が保存される' do
-          Article.first.published_at.should_not be_nil
+          Note.first.published_at.should_not be_nil
         end
       end
     end
@@ -60,22 +60,22 @@ describe '管理画面 記事機能' do
 
   describe '一覧' do
     before do
-      2.times { FactoryGirl.create(:article) }
-      FactoryGirl.create(:article, slug: nil)
+      2.times { FactoryGirl.create(:note) }
+      FactoryGirl.create(:note, slug: nil)
 
-      visit '/admin/articles'
+      visit '/admin/notes'
     end
 
     it 'ブログ記事が3件表示されている' do
-      find('table.articles tbody').all('tr').count.should == 3
+      find('table.notes tbody').all('tr').count.should == 3
     end
 
     it '2つ目の記事のslugが "hello-world-2" になっている' do
-      find('table.articles tbody').find('tr:nth-child(2)').should have_content('hello-world-2')
+      find('table.notes tbody').find('tr:nth-child(2)').should have_content('hello-world-2')
     end
 
     it '3つ目の記事の「表示」項目が消えている' do
-      find('table.articles tbody').find('tr:nth-child(3)').find('td:nth-child(6)')
+      find('table.notes tbody').find('tr:nth-child(3)').find('td:nth-child(6)')
         .has_css?('a').should be_false
     end
   end
@@ -83,53 +83,53 @@ describe '管理画面 記事機能' do
   describe '編集' do
     context '非公開記事' do
       before do
-        article = FactoryGirl.create(:article, slug: nil, published_at: nil)
+        note = FactoryGirl.create(:note, slug: nil, published_at: nil)
 
-        visit "/admin/articles/#{article.id}/edit"
+        visit "/admin/notes/#{note.id}/edit"
       end
 
       context 'slugを入力して保存ボタンを押す' do
         before do
-          within('#admin_articles.edit') do
-            fill_in 'article_slug', with: 'hello-world'
+          within('#admin_notes.edit') do
+            fill_in 'note_slug', with: 'hello-world'
           end
 
           click_button '保存'
         end
 
         it '記事が更新されている' do
-          Article.first.slug.should == 'hello-world'
+          Note.first.slug.should == 'hello-world'
         end
 
         it 'published_atに日付が保存される' do
-          Article.first.published_at.should_not be_nil
+          Note.first.published_at.should_not be_nil
         end
       end
     end
 
     context '公開記事' do
       before do
-        @article = FactoryGirl.create(:article)
+        @note = FactoryGirl.create(:note)
 
-        visit "/admin/articles/#{@article.id}/edit"
+        visit "/admin/notes/#{@note.id}/edit"
       end
 
       context '公開状態のまま' do
         context '保存ボタンを押す' do
           before do
-            within('#admin_articles.edit') do
-              fill_in 'article_slug', with: 'new-hello-world'
+            within('#admin_notes.edit') do
+              fill_in 'note_slug', with: 'new-hello-world'
             end
 
             click_button '保存'
           end
 
           it '記事が更新されている' do
-            Article.first.slug.should == 'new-hello-world'
+            Note.first.slug.should == 'new-hello-world'
           end
 
           it 'published_atの値は変化しない' do
-            Article.first.published_at.should == @article.published_at
+            Note.first.published_at.should == @note.published_at
           end
         end
       end
@@ -138,18 +138,18 @@ describe '管理画面 記事機能' do
 
   describe '削除' do
     before do
-      FactoryGirl.create(:article)
+      FactoryGirl.create(:note)
 
-      visit '/admin/articles'
+      visit '/admin/notes'
     end
 
     context '削除ボタンを押す' do
       before do
-        find('table.articles td.delete a').click
+        find('table.notes td.delete a').click
       end
 
       it '記事が削除される' do
-        Article.count.should == 0
+        Note.count.should == 0
       end
 
       it '削除を知らせるflashが表示される' do
