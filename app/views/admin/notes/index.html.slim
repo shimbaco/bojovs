@@ -13,14 +13,14 @@ table.notes.table.table-condensed
   tbody
     - @notes.each do |a|
       tr
-        td = link_to a.title, edit_admin_note_path(a)
-        td = a.slug
-        td = a.published_at
-        td = a.created_at
-        td = a.updated_at
+        td = link_to n.title, edit_admin_note_path(a)
+        td = n.slug
+        td = n.published_at
+        td = n.created_at
+        td = n.updated_at
         td.show
-          - if a.public?
-            = link_to note_path(*a.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
+          - if n.public?
+            = link_to note_path(*n.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
               i.icon-share
           - else
             .btn.btn-mini.disabled
