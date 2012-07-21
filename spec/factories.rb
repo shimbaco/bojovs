@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :admin, class: Admin::User do
+  factory :admin, class: User do
     email 'bojovs@gmail.com'
     username 'bojovs'
     password 'svojob'
@@ -13,7 +13,7 @@ FactoryGirl.define do
     "Hello World #{n}"
   end
 
-  factory :blog_article, class: Blog::Article do
+  factory :article, class: Article do
     slug
     title
     body 'This is my blog article.'

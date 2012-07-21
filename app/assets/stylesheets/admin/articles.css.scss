@@ -1,7 +1,7 @@
-#admin_blog_articles {
+#admin_articles {
   &.new, &.edit, &.create, &.update {
     form {
-      #blog_article_title, #blog_article_body {
+      #article_title, #article_body {
         width: 100%;
       }
       

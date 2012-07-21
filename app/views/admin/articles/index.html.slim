@@ -1,4 +1,4 @@
-= link_to '記事作成', new_admin_blog_article_path, class: 'btn'
+= link_to '記事作成', new_admin_article_path, class: 'btn'
 
 table.articles.table.table-condensed
   thead
@@ -13,18 +13,18 @@ table.articles.table.table-condensed
   tbody
     - @articles.each do |a|
       tr
-        td = link_to a.title, edit_admin_blog_article_path(a)
+        td = link_to a.title, edit_admin_article_path(a)
         td = a.slug
         td = a.published_at
         td = a.created_at
         td = a.updated_at
         td.show
           - if a.public?
-            = link_to blog_articles_path(*a.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
+            = link_to articles_path(*a.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
               i.icon-share
           - else
             .btn.btn-mini.disabled
               i.icon-share
         td.delete
-          = link_to admin_blog_article_path(a), class: 'btn btn-mini', method: :delete, confirm: '削除しますか?' do
+          = link_to admin_article_path(a), class: 'btn btn-mini', method: :delete, confirm: '削除しますか?' do
             i.icon-remove

@@ -1,4 +1,4 @@
-class Admin::User < ActiveRecord::Base
+class User < ActiveRecord::Base
   # :confirmable, :lockable, :omniauthable, :recoverable, :registerable,
   # :token_authenticatable, :timeoutable, :validatable
   devise :database_authenticatable, :rememberable, :trackable
