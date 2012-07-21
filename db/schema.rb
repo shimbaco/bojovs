@@ -11,15 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120721044542) do
+ActiveRecord::Schema.define(:version => 20120721112233) do
 
   create_table "notes", :force => true do |t|
     t.string   "slug"
-    t.string   "title",        :null => false
-    t.text     "body",         :null => false
+    t.string   "title",                           :null => false
+    t.text     "body",                            :null => false
+    t.boolean  "public",       :default => false
     t.date     "published_at"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   add_index "notes", ["slug"], :name => "index_blog_articles_on_slug"

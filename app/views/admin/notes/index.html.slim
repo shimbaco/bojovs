@@ -9,11 +9,12 @@ table.notes.table.table-condensed
       th 作成日
       th 更新日
       th 表示
+      th 公開
       th 削除
   tbody
-    - @notes.each do |a|
+    - @notes.each do |n|
       tr
-        td = link_to n.title, edit_admin_note_path(a)
+        td = link_to n.title, edit_admin_note_path(n)
         td = n.slug
         td = n.published_at
         td = n.created_at
@@ -25,6 +26,13 @@ table.notes.table.table-condensed
           - else
             .btn.btn-mini.disabled
               i.icon-share
+        td
+          - if n.public?
+            = link_to unpublish_admin_note_path(n), class: 'btn btn-mini unpublish', method: :put, confirm: '非公開しますか?' do
+              i.icon-eye-open
+          - else
+            = link_to publish_admin_note_path(n), class: 'btn btn-mini publish', method: :put, confirm: '公開しますか?' do
+              i.icon-eye-close
         td.delete
-          = link_to admin_note_path(a), class: 'btn btn-mini', method: :delete, confirm: '削除しますか?' do
+          = link_to admin_note_path(n), class: 'btn btn-mini', method: :delete, confirm: '削除しますか?' do
             i.icon-remove
