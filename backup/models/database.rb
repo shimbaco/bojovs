@@ -47,7 +47,7 @@ Backup::Model.new(:database, 'Description for database') do
   # Local (Copy) [Storage]
   #
   store_with Local do |local|
-    local.path       = "../../../shared/backup/"
+    local.path       = "../../shared/backup/"
     local.keep       = 5
   end
 
