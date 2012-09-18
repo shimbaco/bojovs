@@ -49,5 +49,6 @@ group :development do
 end
 
 group :production do
+  gem 'backup', '3.0.25'
   gem 'unicorn', '4.3.1'
 end
