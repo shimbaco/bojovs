@@ -18,6 +18,9 @@ gem 'pygments.rb', '0.2.13'
 gem 'redcarpet', '2.1.1'
 gem 'slim-rails', '1.0.3'
 
+# Utils
+gem 'yettings', '0.1.1'
+
 
 group :assets do
   gem 'coffee-rails', '3.2.2'
