@@ -47,3 +47,7 @@ group :development do
   gem 'guard-spork', '1.0.0'
   gem 'pry-rails', '0.1.6'
 end
+
+group :production do
+  gem 'unicorn', '4.3.1'
+end
