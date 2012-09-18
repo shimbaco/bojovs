@@ -26,6 +26,10 @@ group :assets do
   gem 'uglifier', '1.2.4'
 end
 
+group :development, :production do
+  gem 'backup', '3.0.25'
+end
+
 group :development, :test do
   gem 'capistrano', '2.13.4'
   gem 'capistrano_colors', '0.5.5'
@@ -49,6 +53,5 @@ group :development do
 end
 
 group :production do
-  gem 'backup', '3.0.25'
   gem 'unicorn', '4.3.1'
 end
