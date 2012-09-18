@@ -2,6 +2,7 @@
 
 /.bundle
 /config/database.yml
+/config/unicorn.rb
 /log/*.log
 /tmp
 /vendor/bundle
