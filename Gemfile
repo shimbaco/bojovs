@@ -4,7 +4,7 @@ gem 'rails', '3.2.5'
 
 # Assets
 gem 'jquery-rails', '2.0.2'
-gem 'twitter-bootstrap-rails', '2.0.9'
+gem 'twitter-bootstrap-rails', '2.1.3'
 
 # Controllers
 gem 'devise', '2.1.0'
