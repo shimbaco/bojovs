@@ -3,7 +3,7 @@
 require 'yaml'
 
 
-db_conf = YAML.load_file(File.expand_path('../../config/database.yml',  __FILE__))
+db_conf = YAML.load_file(File.expand_path('../config/database.yml',  __FILE__))
 rails_env = ENV['RAILS_ENV'] || 'development'
 
 ##
