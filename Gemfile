@@ -27,12 +27,16 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'capistrano', '2.13.4'
+  gem 'capistrano_colors', '0.5.5'
+  gem 'capistrano-ext', '1.2.1'
   gem 'capybara', '1.1.2'
   gem 'capybara-webkit', '0.12.1'
   gem 'database_cleaner', '0.8.0'
   gem 'factory_girl_rails', '3.3.0'
   gem 'nyan-cat-formatter', '0.0.7'
   gem 'rspec-rails', '2.10.1'
+  gem 'rvm-capistrano', '1.2.7'
   gem 'spork-rails', '3.2.0'
 end
 
