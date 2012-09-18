@@ -31,6 +31,7 @@ end
 
 group :development, :production do
   gem 'backup', '3.0.25'
+  gem 'whenever', '0.7.3', require: false
 end
 
 group :development, :test do
