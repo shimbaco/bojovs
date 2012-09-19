@@ -13,6 +13,9 @@ set :scm, :git
 set :unicorn_port, 3000
 set :use_sudo, false
 set :whenever_command, 'bundle exec whenever'
+set :whenever_environment, rails_env
+set :whenever_variables, "environment=#{rails_env}&current_path=#{current_path}"
+
 
 # SSH
 default_run_options[:pty] = true
@@ -21,6 +24,7 @@ default_run_options[:pty] = true
 namespace :deploy do
   task :symlink_contents do
     run "ln -s #{shared_path}/database.yml #{release_path}/config"
+    run "ln -s #{shared_path}/yetting.yml #{release_path}/config"
   end
 
   task :start, roles: :app do
