@@ -13,7 +13,6 @@ set :scm, :git
 set :unicorn_port, 3000
 set :use_sudo, false
 set :whenever_command, 'bundle exec whenever'
-set :whenever_environment, defer { stage }
 
 # SSH
 default_run_options[:pty] = true

@@ -3,5 +3,6 @@ set :deploy_to, '/path/to/project'
 set :rails_env, 'production'
 set :rvm_ruby_string, '1.9.3-p194'
 set :user, 'user'
+set :whenever_environment, 'production'
 
 server '0.0.0.0', :web, :app, :db, primary: true
