@@ -24,6 +24,10 @@ Backup::Model.new(:log, 'Description for log') do
   #
   split_into_chunks_of 250
 
+  archive :logs do |archive|
+    archive.add '/home/com-bojovs/shared/log/'
+  end
+
   ##
   # Amazon Simple Storage Service [Storage]
   #
@@ -38,8 +42,9 @@ Backup::Model.new(:log, 'Description for log') do
   store_with S3 do |s3|
     s3.access_key_id     = conf['production']['aws']['access_key_id']
     s3.secret_access_key = conf['production']['aws']['secret_access_key']
-    s3.region            = "ap-northeast-1"
-    s3.bucket            = "#{conf['production']['aws']['s3']['bucket']}/backup"
+    s3.region            = 'ap-northeast-1'
+    s3.bucket            = conf['production']['aws']['s3']['bucket']
+    s3.path              = 'backup/log'
     s3.keep              = 10
   end
 
