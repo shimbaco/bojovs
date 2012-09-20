@@ -13,8 +13,6 @@ set :scm, :git
 set :unicorn_port, 3000
 set :use_sudo, false
 set :whenever_command, 'bundle exec whenever'
-set :whenever_environment, rails_env
-set :whenever_variables, "environment=#{rails_env}&current_path=#{current_path}"
 
 
 # SSH
