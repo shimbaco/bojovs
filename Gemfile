@@ -33,7 +33,7 @@ end
 
 group :development, :production do
   gem 'backup', '3.0.25'
-  gem 'fog', '1.6.0' # "backup" で使用
+  gem 'fog', '~> 1.4.0' # "backup" で使用
   gem 'whenever', '0.7.3', require: false
 end
 
