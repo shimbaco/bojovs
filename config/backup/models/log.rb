@@ -44,7 +44,7 @@ Backup::Model.new(:log, 'Description for log') do
     s3.secret_access_key = conf['production']['aws']['secret_access_key']
     s3.region            = 'ap-northeast-1'
     s3.bucket            = conf['production']['aws']['s3']['bucket']
-    s3.path              = 'backup/log'
+    s3.path              = 'backup'
     s3.keep              = 10
   end
 
