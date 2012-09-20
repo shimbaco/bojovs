@@ -13,6 +13,7 @@ set :scm, :git
 set :unicorn_port, 3000
 set :use_sudo, false
 set :whenever_command, 'bundle exec whenever'
+set :whenever_variables, defer { "'current_path=#{current_path}'" }
 
 
 # SSH
