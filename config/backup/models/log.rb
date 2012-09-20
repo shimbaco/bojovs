@@ -12,6 +12,10 @@ conf = YAML.load_file(File.expand_path('../config/yetting.yml',  __FILE__))
 # $ backup perform -t log [-c <path_to_configuration_file>]
 #
 Backup::Model.new(:log, 'Description for log') do
+  p conf['production']['aws']['access_key_id']
+  p conf['production']['aws']['secret_access_key']
+  p conf['production']['aws']['s3']['bucket']
+
   ##
   # Split [Splitter]
   #
