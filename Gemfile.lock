@@ -271,8 +271,6 @@ GEM
     xpath (0.1.4)
       nokogiri (~> 1.3)
     yettings (0.1.1)
-    zeus (0.11.2)
-      method_source (>= 0.6.7)
 
 PLATFORMS
   ruby
@@ -313,4 +311,3 @@ DEPENDENCIES
   unicorn
   whenever
   yettings
-  zeus
