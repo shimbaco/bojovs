@@ -2,6 +2,11 @@ class Note < ActiveRecord::Base
   attr_accessible :body, :published_at, :slug, :title
 
 
+  validates :body, presence: true
+  validates :slug, presence: true
+  validates :title, presence: true
+
+
   def url_params
     year = published_at.year.to_s
     month = sprintf('%02d', published_at.month.to_s)

@@ -11,6 +11,7 @@ class Admin::NotesController < Admin::ApplicationController
 
   def create
     @note = ::Note.new(params[:note])
+    @note.published_at = Date.today
 
     if @note.save
       flash[:notice] = '記事を作成しました。'
