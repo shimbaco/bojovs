@@ -20,9 +20,9 @@ table.notes.table.table-condensed
       tr class="#{'warning' unless n.published?}"
         td = link_to n.title, edit_admin_note_path(n)
         td = n.slug
-        td = n.published_at
-        td = n.created_at
-        td = n.updated_at
+        td = formated_date(n.published_at)
+        td = formated_datetime(n.created_at)
+        td = formated_datetime(n.updated_at)
         td = n.published? ? '公開中' : '非公開中'
         td.show
           = link_to note_path(*n.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
