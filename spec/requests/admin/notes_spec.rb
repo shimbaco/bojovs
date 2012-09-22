@@ -17,6 +17,9 @@ describe '管理画面 記事機能' do
         fill_in 'note_title', with: 'こんにちは世界'
         fill_in 'note_body', with: 'ノートへの記録、はじめました'
         fill_in 'note_slug', with: 'hello-world'
+        select '2012', from: 'note_published_at_1i'
+        select 'September', from: 'note_published_at_2i'
+        select '23', from: 'note_published_at_3i'
       end
 
       click_button '保存'
@@ -63,34 +66,6 @@ describe '管理画面 記事機能' do
 
     it '記事が更新されている' do
       Note.first.slug.should == 'new-hello-world'
-    end
-  end
-
-  describe '公開' do
-    before do
-      note = FactoryGirl.create(:note)
-
-      visit '/admin/notes'
-
-      find('table.notes td a.publish').click
-    end
-
-    it '記事が公開される' do
-      Note.first.published.should == true
-    end
-  end
-
-  describe '非公開' do
-    before do
-      note = FactoryGirl.create(:note, published: true)
-
-      visit '/admin/notes'
-
-      find('table.notes td a.unpublish').click
-    end
-
-    it '記事が非公開になる' do
-      Note.first.published.should == false
     end
   end
 

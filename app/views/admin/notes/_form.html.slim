@@ -1,14 +1,10 @@
-= form_for [:admin, @note], html: { class: 'form-horizontal' } do |f|
-  .span8
-    .title
-      = f.label :title
-      = f.text_field :title
-    .body
-      = f.label :body
-      = f.text_area :body
-  .span3.pull-right
-    .slug
-      = f.label :slug
-      = f.text_field :slug
-    .submit
+= simple_form_for [:admin, @note], html: { class: 'form-horizontal' } do |f|
+  = f.input :title, autofocus: true, input_html: { class: 'input-xxlarge' }
+  = f.input :body, input_html: { class: 'input-xxlarge' }
+  = f.input :slug, input_html: { class: 'input-xxlarge' }
+  = f.input :published_at
+  = f.input :published, as: :boolean, label: false, inline_label: true
+
+  .control-group
+    .controls
       = f.submit '保存', class: 'btn btn-primary'

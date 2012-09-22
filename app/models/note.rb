@@ -1,8 +1,9 @@
 class Note < ActiveRecord::Base
-  attr_accessible :body, :published_at, :slug, :title
+  attr_accessible :body, :published, :published_at, :slug, :title
 
 
   validates :body, presence: true
+  validates :published_at, presence: true
   validates :slug, presence: true
   validates :title, presence: true
 
@@ -13,17 +14,5 @@ class Note < ActiveRecord::Base
     day = sprintf('%02d', published_at.day.to_s)
 
     [year, month, day, slug]
-  end
-
-  def make_public
-    self.slug = Digest::SHA256.hexdigest(created_at.to_s)[0..4] unless slug?
-    self.published = true
-    self.published_at = Date.today unless published_at?
-
-    self.save
-  end
-
-  def make_private
-    update_attribute(:published, false)
   end
 end

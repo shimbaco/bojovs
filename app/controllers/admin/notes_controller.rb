@@ -11,12 +11,14 @@ class Admin::NotesController < Admin::ApplicationController
 
   def create
     @note = ::Note.new(params[:note])
-    @note.published_at = Date.today
 
     if @note.save
       flash[:notice] = '記事を作成しました。'
-      redirect_to admin_notes_path
+
+      return redirect_to admin_notes_path
     end
+
+    render :new
   end
 
   def edit
@@ -28,26 +30,9 @@ class Admin::NotesController < Admin::ApplicationController
 
     if @note.update_attributes(params[:note])
       flash[:notice] = '記事を更新しました。'
-      redirect_to admin_notes_path
+
+      return redirect_to admin_notes_path
     end
-  end
-
-  def publish
-    @note = ::Note.find(params[:id])
-
-    @note.make_public
-
-    flash[:notice] = '記事を公開しました。'
-    redirect_to admin_notes_path
-  end
-
-  def unpublish
-    @note = ::Note.find(params[:id])
-
-    @note.make_private
-
-    flash[:notice] = '記事を非公開にしました。'
-    redirect_to admin_notes_path
   end
 
   def destroy

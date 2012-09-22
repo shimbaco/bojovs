@@ -1,13 +1,2 @@
 #admin_notes {
-  &.new, &.edit, &.create, &.update {
-    form {
-      #note_title, #note_body {
-        width: 100%;
-      }
-      
-      .title, .slug {
-        margin-bottom: 30px;
-      }
-    }
-  }
 }
