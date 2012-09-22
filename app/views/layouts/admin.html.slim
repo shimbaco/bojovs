@@ -14,6 +14,9 @@ html lang='ja'
           = link_to 'Bojovs.com', admin_root_path, class: 'brand'
           ul.nav
             li = link_to 'ブログ', admin_notes_path
+          ul.nav.pull-right
+            - if admin_user_signed_in?
+              li = link_to 'ログアウト', destroy_admin_user_session_path, method: 'delete'
 
       - if flash[:notice]
         .alert.alert-info = flash[:notice]
