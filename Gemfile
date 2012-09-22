@@ -5,8 +5,8 @@ source 'https://rubygems.org'
 gem 'rails'
 
 # Assets
+gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'twitter-bootstrap-rails'
 
 # Controllers
 gem 'devise'
