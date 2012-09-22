@@ -18,6 +18,7 @@ gem 'mysql2'
 gem 'bourbon'
 gem 'pygments.rb'
 gem 'redcarpet'
+gem 'simple_form'
 gem 'slim-rails'
 
 # Utils
