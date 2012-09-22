@@ -165,6 +165,8 @@ GEM
       pry (>= 0.9.10)
     pygments.rb (0.2.13)
       rubypython (~> 0.5.3)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -298,6 +300,7 @@ DEPENDENCIES
   mysql2
   pry-rails
   pygments.rb
+  quiet_assets
   rails
   rb-fsevent (~> 0.9.1)
   redcarpet

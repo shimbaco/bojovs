@@ -57,6 +57,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'pry-rails'
+  gem 'quiet_assets'
   gem 'rb-fsevent', '~> 0.9.1' # Guard で使用
 end
 
