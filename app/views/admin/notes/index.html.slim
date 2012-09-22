@@ -12,27 +12,21 @@ table.notes.table.table-condensed
       th 公開日
       th 作成日
       th 更新日
+      th 状態
       th 表示
-      th 公開
       th 削除
   tbody
     - @notes.each do |n|
-      tr
+      tr class="#{'warning' unless n.published?}"
         td = link_to n.title, edit_admin_note_path(n)
         td = n.slug
         td = n.published_at
         td = n.created_at
         td = n.updated_at
+        td = n.published? ? '公開中' : '非公開中'
         td.show
           = link_to note_path(*n.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
             i.icon-share
-        td
-          - if n.published?
-            = link_to unpublish_admin_note_path(n), class: 'btn btn-mini unpublish', method: :put, confirm: '非公開しますか?' do
-              i.icon-eye-open
-          - else
-            = link_to publish_admin_note_path(n), class: 'btn btn-mini publish', method: :put, confirm: '公開しますか?' do
-              i.icon-eye-close
         td.delete
           = link_to admin_note_path(n), class: 'btn btn-mini', method: :delete, confirm: '削除しますか?' do
             i.icon-remove
