@@ -24,12 +24,8 @@ table.notes.table.table-condensed
         td = n.created_at
         td = n.updated_at
         td.show
-          - if n.public?
-            = link_to note_path(*n.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
-              i.icon-share
-          - else
-            .btn.btn-mini.disabled
-              i.icon-share
+          = link_to note_path(*n.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
+            i.icon-share
         td
           - if n.public?
             = link_to unpublish_admin_note_path(n), class: 'btn btn-mini unpublish', method: :put, confirm: '非公開しますか?' do
