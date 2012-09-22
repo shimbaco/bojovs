@@ -59,6 +59,7 @@ group :development do
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'rb-fsevent', '~> 0.9.1' # Guard で使用
+  gem 'thin'
 end
 
 group :production do
