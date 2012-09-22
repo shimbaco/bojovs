@@ -152,7 +152,6 @@ GEM
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     nokogiri (1.5.5)
-    nyan-cat-formatter (0.1.0)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
     pony (1.4)
@@ -297,7 +296,6 @@ DEPENDENCIES
   guard-spork
   jquery-rails
   mysql2
-  nyan-cat-formatter
   pry-rails
   pygments.rb
   rails

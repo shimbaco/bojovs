@@ -46,7 +46,6 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'nyan-cat-formatter'
   gem 'rspec-rails'
   gem 'rvm-capistrano'
   gem 'spork-rails'
