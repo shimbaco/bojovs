@@ -15,7 +15,7 @@ describe '管理画面 記事機能' do
 
       within('#admin_notes.new') do
         fill_in 'note_title', with: 'こんにちは世界'
-        fill_in 'note_body', with: 'ブログはじめました'
+        fill_in 'note_body', with: 'ノートへの記録、はじめました'
       end
 
       click_button '保存'

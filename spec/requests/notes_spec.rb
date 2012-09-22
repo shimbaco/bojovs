@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'ブログ記事' do
+describe 'ノート' do
   describe '詳細' do
     before do
       FactoryGirl.create(:note, published_at: '2012/06/01')
