@@ -1,5 +1,9 @@
 /*
  *= require_self
- *= require admin/bootstrap_and_overrides
- *= require_tree .
  */
+
+ @import 'bootstrap';
+
+ @import 'base/common';
+
+ @import 'notes';
