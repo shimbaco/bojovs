@@ -5,7 +5,7 @@ html lang='ja'
     title = content_for?(:title) ? yield(:title) : 'Bojovs'
     = csrf_meta_tags
     = stylesheet_link_tag 'admin/application', media: 'all'
-    link href='images/favicon.ico' rel='shortcut icon'
+    = favicon_link_tag '/favicon.png'
 
   body id="#{params[:controller].gsub!(/\//, '_')}" class="#{params[:action]}"
     .container
