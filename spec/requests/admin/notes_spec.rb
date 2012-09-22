@@ -46,8 +46,8 @@ describe '管理画面 記事機能' do
       find('table.notes tbody').all('tr').count.should == 3
     end
 
-    it '2つ目の記事のslugが "hello-world-2" になっている' do
-      find('table.notes tbody').find('tr:nth-child(2)').should have_content('hello-world-2')
+    it '2つ目の記事のタイトルが "Hello World 2" になっている' do
+      find('table.notes tbody').find('tr:nth-child(2)').should have_content('Hello World 2')
     end
   end
 

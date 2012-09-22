@@ -8,7 +8,6 @@ table.notes.table.table-condensed
   thead
     tr
       th タイトル
-      th slug
       th 公開日
       th 作成日
       th 更新日
@@ -19,7 +18,6 @@ table.notes.table.table-condensed
     - @notes.each do |n|
       tr class="#{'warning' unless n.published?}"
         td = link_to n.title, edit_admin_note_path(n)
-        td = n.slug
         td = formated_date(n.published_at)
         td = formated_datetime(n.created_at)
         td = formated_datetime(n.updated_at)
