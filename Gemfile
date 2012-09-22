@@ -22,6 +22,7 @@ gem 'slim-rails'
 
 # Utils
 gem 'yettings'
+gem 'zeus'
 
 
 group :assets do
