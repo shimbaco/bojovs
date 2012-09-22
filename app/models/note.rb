@@ -17,13 +17,13 @@ class Note < ActiveRecord::Base
 
   def make_public
     self.slug = Digest::SHA256.hexdigest(created_at.to_s)[0..4] unless slug?
-    self.public = true
+    self.published = true
     self.published_at = Date.today unless published_at?
 
     self.save
   end
 
   def make_private
-    update_attribute(:public, false)
+    update_attribute(:published, false)
   end
 end

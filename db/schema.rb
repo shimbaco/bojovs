@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120721112233) do
+ActiveRecord::Schema.define(:version => 20120922172144) do
 
   create_table "notes", :force => true do |t|
     t.string   "slug"
     t.string   "title",                           :null => false
     t.text     "body",                            :null => false
-    t.boolean  "public",       :default => false
+    t.boolean  "published",    :default => false
     t.date     "published_at"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false

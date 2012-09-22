@@ -76,13 +76,13 @@ describe '管理画面 記事機能' do
     end
 
     it '記事が公開される' do
-      Note.first.public.should == true
+      Note.first.published.should == true
     end
   end
 
   describe '非公開' do
     before do
-      note = FactoryGirl.create(:note, public: true)
+      note = FactoryGirl.create(:note, published: true)
 
       visit '/admin/notes'
 
@@ -90,7 +90,7 @@ describe '管理画面 記事機能' do
     end
 
     it '記事が非公開になる' do
-      Note.first.public.should == false
+      Note.first.published.should == false
     end
   end
 
