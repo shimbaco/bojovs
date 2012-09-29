@@ -1,5 +1,6 @@
-h1
-  = @note.title
+article
+  h1
+    = @note.title
 
-.body
-  = markdown(@note.body).html_safe
+  .body
+    = markdown(@note.body).html_safe

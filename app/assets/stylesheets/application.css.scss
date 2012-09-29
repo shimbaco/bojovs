@@ -2,9 +2,12 @@
 
 @import 'bourbon';
 @import 'font-awesome';
+@import 'pygments';
 
 @import 'base/variables';
 @import 'base/base';
 @import 'base/layout';
 
-@import 'home'
+@import 'home';
+@import 'notes';
+

@@ -1,3 +1,67 @@
-// Place all the styles related to the notes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#notes {
+  &.show {
+    #content {
+      width: 550px !important;
+
+      article {
+        h1 {
+          font-size: 1.5em;
+          margin-bottom: 30px;
+        }
+
+        .body {
+          font-size: 0.8em;
+          line-height: 20px;
+
+          h2 {
+            font-size: 1.4em;
+            margin: 25px 0;
+          }
+
+          h3 {
+            font-size: 1.3em;
+            margin: 20px 0;
+          }
+
+          h4 {
+            font-size: 1.2em;
+            margin: 15px 0;
+          }
+
+          h5 {
+            font-size: 1.1em;
+            margin: 10px 0;
+          }
+
+          p {
+            margin: 17px 0;
+          }
+
+          ul, ol {
+            padding-left: 30px;
+          }          
+
+          code, pre {
+            font-family: 'Droid Sans Mono', Consolas, Courier, monospace;
+          }
+          
+          code {
+            background-color: #fffffc;
+            border: 1px solid $borderColor;
+            border-radius: 3px;
+            margin: 0 2px;
+            padding: 0px 5px;
+          }
+
+          .highlight {
+            background-color: #fffffc;
+            border: solid 1px $borderColor;
+            margin: 20px 0;
+            overflow-x: auto;
+            padding: 5px 20px;
+          }
+        }
+      }
+    }
+  }
+}
