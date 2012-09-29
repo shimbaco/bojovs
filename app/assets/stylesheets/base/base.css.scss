@@ -1,4 +1,13 @@
 body {
-  background-color: #eaf0ed;
+  background-color: #dddcd6;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: $hashibamiColor;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

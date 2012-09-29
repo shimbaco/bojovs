@@ -4,14 +4,24 @@ html
     meta charset='utf-8'
     title bojovs.com
     = stylesheet_link_tag 'application', media: 'all'
-    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Short+Stack'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Oxygen+Mono'
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body id="#{params[:controller].gsub(/\//, '_')}" class="#{params[:action]}"
     header
       h1 = link_to 'bojovs.com', root_path
+      nav
+        ul.social
+          li
+            = link_to 'https://twitter.com/bojovs' do
+              i.icon-twitter
+          li
+            = link_to 'https://github.com/bojovs' do
+              i.icon-github
     #container
       #wrapper
         #content
           = yield
     footer
+      .copyright
+        | COPYRIGHT © 2012 BOJOVS.COM ALL RIGHTS RESERVED.

@@ -1,19 +1,47 @@
-nav
-  .profile
-    .image
-      = image_tag('http://placehold.it/100x100')
-    .info
-      .full_name
-        | Koji Shinba
-      ul
-        li.job
-          i.icon-briefcase
-          |  Developer
-        li.location
-          i.icon-map-marker
-          |  Kanagawa, Japan
-        li.bio
-          i.icon-comment
-          |  うほほーい。
-
 article
+  .profile
+    .top
+      .avatar
+        = image_tag '/bojovs.png'
+      .name
+        .full-name
+          | Koji Shinba
+          span.kanji
+            | (榛葉 光二)
+        .username
+          | bojovs
+    .bottom
+      .about
+        ul
+          li
+            i.icon-map-marker
+            |  Kanagawa, Japan
+          li
+            i.icon-gift
+            |  1988/03/10
+          li
+            i.icon-briefcase
+            = link_to ' FICC inc.', 'http://www.ficc.jp/'
+          li
+            i.icon-envelope
+            span.email data-swahili='jani nuru'
+              |  {email}
+  .contents
+    .notes
+      h2 ノート
+      ul
+        - @notes.each do |note|
+          li
+            .date
+              = formated_date(note.published_at)
+            = link_to note.title, note_path(*note.url_params)
+      .more
+        = link_to 'もっと見る', notes_path
+
+    .links
+      h2 リンク
+      ul
+        li = link_to 'Twitter', 'https://twitter.com'
+        li = link_to 'GitHub', 'https://github.com/bojovs'
+        li = link_to 'Pinboard', 'http://pinboard.in/u:bojovs'
+        li = link_to 'Tumblr', 'http://bojovs.tumblr.com/'

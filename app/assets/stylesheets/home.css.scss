@@ -1,36 +1,97 @@
 #home {
   &.index {
-    nav {
-      float: left;
-      width: 250px;
-
+    article {
       .profile {
-        .image {
-          float: left;
-          width: 100px;
-        }
-        .info {
-          @include clearfix;
-          float: right;
-          padding-left: 5px;
-          width: 145px;
+        margin-bottom: 40px;
 
-          .full_name {
-            font-size: 1.1em;
-            margin-bottom: 10px;
+        .top {
+          @include clearfix;
+
+          margin-bottom: 20px;
+
+          .avatar {
+            float: left;
           }
+
+          .name {
+            float: left;
+            margin-left: 20px;
+
+            .full-name {
+              font-size: 1.5em;
+              margin: 10px 0;
+
+              .kanji {
+                color: $grayColor;
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+
+        .bottom {
           ul {
             li {
-              font-size: 0.8em;
-              margin-bottom: 5px;
+              font-size: 0.9em;
+              list-style: none;
+              margin-bottom: 3px;
+
+              i {
+                color: $grayColor;
+              }
             }
           }
         }
       }
-    }
 
-    article {
-      @include clearfix;
+      .contents {
+        @include clearfix;
+
+        .links, .notes {
+          float: left;
+          width: 365px;
+
+          h2 {
+            border-bottom: 1px solid $borderColor;
+            height: 25px;
+            margin-bottom: 30px;
+          }
+
+          ul {
+            li {
+              list-style: none;
+              margin-bottom: 20px;
+            }
+          }
+        }
+              
+        .notes {
+          padding-right: 10px;
+
+          ul {
+            li {
+              .date {
+                color: #69821b;
+                font-size: 0.8em;
+                margin-bottom: 10px;
+              }
+
+              a {
+                font-size: 1.3em;
+              }
+            }
+          }
+
+          .more {
+            font-size: 0.8em;
+            text-align: right;
+          }
+        }
+
+        .links {
+          padding-left: 10px;
+        }
+      }
     }
   }
 }
