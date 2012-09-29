@@ -1,3 +1,5 @@
+# coding: utf-8
+
 module Bojovs
   module Markdown
     def self.markdown_options
@@ -15,7 +17,7 @@ module Bojovs
     class HTMLPygments < Redcarpet::Render::HTML
       def block_code(code, language)
         if language.present?
-          Pygments.highlight(code, lexer: language)
+          Pygments.highlight(code, lexer: language, options: { encoding: 'utf-8' })
         else
           rndr = Redcarpet::Render::HTML.new(Bojovs::Markdown.html_options)
           Bojovs::Markdown.markdownify(rndr).render(code)

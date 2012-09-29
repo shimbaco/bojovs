@@ -1,4 +1,7 @@
+# coding: utf-8
+
 require File.expand_path("#{Rails.root}/lib/bojovs/markdown")
+
 
 module NotesHelper
   def markdown(body)
