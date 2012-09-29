@@ -12,19 +12,19 @@ table.notes.table.table-condensed
       th 作成日
       th 更新日
       th 状態
-      th 表示
+      th 編集
       th 削除
   tbody
     - @notes.each do |n|
       tr class="#{'warning' unless n.published?}"
-        td = link_to n.title, edit_admin_note_path(n)
+        td = link_to n.title, note_path(*n.url_params), target: '_blank'
         td = formated_date(n.published_at)
         td = formated_datetime(n.created_at)
         td = formated_datetime(n.updated_at)
         td = n.published? ? '公開中' : '非公開中'
-        td.show
-          = link_to note_path(*n.url_params), class: 'btn btn-mini', id: 'show', target: '_blank' do
-            i.icon-share
+        td
+          = link_to edit_admin_note_path(n), class: 'btn btn-mini', id: 'show', target: '_blank' do
+            i.icon-pencil
         td.delete
           = link_to admin_note_path(n), class: 'btn btn-mini', method: :delete, confirm: '削除しますか?' do
             i.icon-remove
