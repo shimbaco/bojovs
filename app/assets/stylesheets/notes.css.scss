@@ -1,4 +1,23 @@
 #notes {
+  &.index {
+    ul.notes {
+      li {
+        list-style: none;
+        margin-bottom: 20px;
+
+        .date {
+          color: $greenColor;
+          font-size: 0.8em;
+          margin-bottom: 10px;
+        }
+
+        a {
+          font-size: 1.3em;
+        }
+      }
+    }
+  }
+
   &.show {
     #content {
       width: 550px !important;

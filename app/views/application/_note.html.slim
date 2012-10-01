@@ -1,0 +1,4 @@
+li
+  .date
+    = formated_date(note.published_at)
+  = link_to note.title, note_path(*note.url_params)
