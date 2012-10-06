@@ -5,6 +5,7 @@
 /config/database.yml
 /config/unicorn.rb
 /config/yetting.yml
+/log/*.lck
 /log/*.log
 /tmp
 /vendor/bundle
