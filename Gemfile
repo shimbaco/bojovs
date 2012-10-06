@@ -13,6 +13,7 @@ gem 'devise'
 
 # Models
 gem 'mysql2'
+gem 'sunspot_rails'
 
 # Views
 gem 'bourbon'
@@ -49,6 +50,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rvm-capistrano'
   gem 'spork-rails'
+  gem 'sunspot_solr'
 end
 
 group :development do
