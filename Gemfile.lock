@@ -97,6 +97,7 @@ GEM
     factory_girl_rails (4.1.0)
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
+    fattr (2.2.1)
     ffi (1.0.11)
     fog (1.4.0)
       builder
@@ -154,11 +155,16 @@ GEM
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     nokogiri (1.5.5)
+    options (2.3.0)
+      fattr
     orm_adapter (0.4.0)
     polyglot (0.3.3)
     pony (1.4)
       mail (> 2.0)
     pr_geohash (1.0.0)
+    progress_bar (0.4.0)
+      highline (~> 1.6.1)
+      options (~> 2.3.0)
     proxies (0.2.1)
     pry (0.9.10)
       coderay (~> 1.0.5)
@@ -314,6 +320,7 @@ DEPENDENCIES
   guard-spork
   jquery-rails
   mysql2
+  progress_bar
   pry-rails
   pygments.rb
   quiet_assets
