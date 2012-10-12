@@ -7,5 +7,7 @@
 /config/yetting.yml
 /log/*.lck
 /log/*.log
+/solr/data
+/solr/pids
 /tmp
 /vendor/bundle
