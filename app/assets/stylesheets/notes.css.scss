@@ -1,5 +1,16 @@
 #notes {
-  &.index {
+  &.index, &.search {
+    .search {
+      margin-bottom: 30px;
+      text-align: center;
+
+      input {
+        font-size: 1.2em;
+        padding: 8px;
+        width: 500px;
+      }
+    }
+
     ul.notes {
       li {
         list-style: none;

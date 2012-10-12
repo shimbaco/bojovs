@@ -8,6 +8,12 @@ class Note < ActiveRecord::Base
   validates :title, presence: true
 
 
+  searchable do
+    text :title, :body
+    time :created_at
+  end
+
+
   def url_params
     year = published_at.year.to_s
     month = sprintf('%02d', published_at.month.to_s)
