@@ -2,7 +2,9 @@ doctype html
 html
   head
     meta charset='utf-8'
-    title bojovs.com
+    title
+      = "#{yield(:title)} | " if content_for?(:title)
+      | bojovs.com
     = favicon_link_tag '/favicon.png'
     = stylesheet_link_tag 'application', media: 'all'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Oxygen+Mono'
