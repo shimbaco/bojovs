@@ -34,7 +34,7 @@
             li {
               font-size: 0.9em;
               list-style: none;
-              margin-bottom: 3px;
+              margin-bottom: 6px;
 
               i {
                 color: $grayColor;
@@ -49,7 +49,7 @@
 
         .links, .notes {
           float: left;
-          width: 365px;
+          width: 360px;
 
           h2 {
             border-bottom: 1px solid $borderColor;
@@ -66,7 +66,7 @@
         }
               
         .notes {
-          padding-right: 10px;
+          padding-right: 15px;
 
           ul {
             li {
@@ -74,10 +74,6 @@
                 color: $greenColor;
                 font-size: 0.8em;
                 margin-bottom: 10px;
-              }
-
-              a {
-                font-size: 1.3em;
               }
             }
           }
@@ -89,7 +85,7 @@
         }
 
         .links {
-          padding-left: 10px;
+          padding-left: 15px;
         }
       }
     }
