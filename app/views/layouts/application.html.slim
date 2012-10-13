@@ -12,7 +12,7 @@ html
   body id="#{params[:controller].gsub(/\//, '_')}" class="#{params[:action]}"
     header
       h1 = link_to 'bojovs.com', root_path
-      nav
+      nav.left
         ul.social
           li
             = link_to 'https://twitter.com/bojovs' do
@@ -20,6 +20,10 @@ html
           li
             = link_to 'https://github.com/bojovs' do
               i.icon-github
+      - if admin_user_signed_in?
+        nav.right
+          ul.admin
+            li = link_to '管理', admin_root_path
     #container
       #wrapper
         #content

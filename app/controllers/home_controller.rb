@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @notes = Note.order('published_at DESC').limit(5)
+    @notes = Note.published(admin_user_signed_in?).order('published_at DESC').limit(5)
   end
 end

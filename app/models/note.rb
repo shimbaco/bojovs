@@ -8,9 +8,18 @@ class Note < ActiveRecord::Base
   validates :title, presence: true
 
 
+  scope :published, -> is_admin { where(published: true) unless is_admin }
+
+
   searchable do
     text :title, :body
+    boolean :published
     time :created_at
+  end
+
+
+  def self.find_by_url!(published_at, slug)
+    where(published_at: published_at).where(slug: slug).first!
   end
 
 
