@@ -24,13 +24,17 @@ namespace :deploy do
   task :symlink_contents do
     run "ln -s #{shared_path}/database.yml #{release_path}/config"
     run "ln -s #{shared_path}/yetting.yml #{release_path}/config"
+    run "ln -sf #{release_path}/solr/conf /usr/share/solr/com-bojovs/"
   end
 
   task :start, roles: :app do
+    run "cd #{current_path}; bundle exec sunspot:reindex"
+    run "cd #{current_path}; bundle exec sunspot:solr:start"
     run "cd #{current_path}; bundle exec unicorn_rails -l #{unicorn_port} -E #{rails_env} -D"
   end
   
   task :stop, roles: :app do
+    run "cd #{current_path}; bundle exec sunspot:solr:stop"
     run "if [ -f '#{shared_path}/pids/unicorn.pid' ]; then kill -KILL -s QUIT `cat #{shared_path}/pids/unicorn.pid`; fi"
   end
 
