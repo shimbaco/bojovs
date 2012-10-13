@@ -64,4 +64,28 @@ Bojovs::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.delivery_method = :smtp
+
+  # Action Mailer
+  yetting = YAML.load_file(File.expand_path('../../yetting.yml',  __FILE__))
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: yetting['production']['gmail']['user_name'],
+    password: yetting['production']['gmail']['password'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
+  # Exception Notifier
+  config.middleware.use ExceptionNotifier,
+    email_prefix: '[Exception: bojovs.com]',
+    sender_address: %{'Exception Notifier' <no-reply@bojovs.com>},
+    exception_recipients: %w{bojovs@gmail.com},
+    ignore_exceptions: [],
+    ignore_crawlers: %w{AhrefsBot Baiduspider bingbot Googlebot MJ12bot Tobot TosCrawler Y!J-BRT}
 end
