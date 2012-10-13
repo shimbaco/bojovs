@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
 
 
   private
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def not_found
-    render text: '404 Not Found', status: 404
+  def render_404
+    render file: Rails.root.join('public', '404'), layout: false, status: 404
   end
 end
