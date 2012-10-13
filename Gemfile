@@ -23,7 +23,6 @@ gem 'simple_form'
 gem 'slim-rails'
 
 # Utils
-gem 'progress_bar'
 gem 'yettings'
 
 
@@ -59,6 +58,7 @@ group :development do
   gem 'growl'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'progress_bar'
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'rb-fsevent', '~> 0.9.1' # Guard で使用
