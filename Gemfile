@@ -23,6 +23,7 @@ gem 'simple_form'
 gem 'slim-rails'
 
 # Utils
+gem 'exception_notification'
 gem 'yettings'
 
 
