@@ -11,6 +11,8 @@ html
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Sans+Mono'
     = javascript_include_tag 'application'
     = csrf_meta_tags
+    = render 'google_analytics'
+
   body id="#{params[:controller].gsub(/\//, '_')}" class="#{params[:action]}"
     header
       h1 = link_to 'bojovs.com', root_path
