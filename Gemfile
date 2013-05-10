@@ -2,70 +2,70 @@
 
 source 'https://rubygems.org'
 
-gem 'rails'
+gem 'rails', '3.2.13'
 
 # Assets
-gem 'bootstrap-sass'
-gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'jquery-rails', '~> 2.2.1'
 
 # Controllers
-gem 'devise'
+gem 'devise', '~> 2.2.4'
 
 # Models
-gem 'mysql2'
-gem 'sunspot_rails'
+gem 'mysql2', '~> 0.3.11'
+gem 'sunspot_rails', '~> 2.0.0'
 
 # Views
-gem 'bourbon'
-gem 'pygments.rb'
-gem 'redcarpet'
-gem 'simple_form'
-gem 'slim-rails'
+gem 'bourbon', '~> 3.1.6'
+gem 'pygments.rb', '~> 0.5.0'
+gem 'redcarpet', '~> 2.2.2'
+gem 'simple_form', '~> 2.1.0'
+gem 'slim-rails', '~> 1.1.1'
 
 # Utils
-gem 'exception_notification'
-gem 'yettings'
+gem 'exception_notification', '~> 3.0.1'
+gem 'yettings', '~> 0.1.1'
 
 
 group :assets do
-  gem 'coffee-rails'
-  gem 'font-awesome-sass-rails'
-  gem 'sass-rails'
-  gem 'uglifier'
+  gem 'coffee-rails', '~> 3.2.2'
+  gem 'font-awesome-sass-rails', '~> 3.0.2.2'
+  gem 'sass-rails', '~> 3.2.6'
+  gem 'uglifier', '~> 2.1.0'
 end
 
 group :development, :production do
-  gem 'backup'
-  gem 'fog', '~> 1.4.0' # "backup" で使用
-  gem 'whenever', require: false
+  gem 'backup', '~> 3.4.0'
+  gem 'fog', '~> 1.11.1' # "backup" で使用
+  gem 'whenever', '~> 0.8.2', require: false
 end
 
 group :development, :test do
-  gem 'capistrano'
-  gem 'capistrano_colors'
-  gem 'capistrano-ext'
-  gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-  gem 'rvm-capistrano'
-  gem 'spork-rails'
-  gem 'sunspot_solr'
+  gem 'capistrano', '~> 2.15.4'
+  gem 'capistrano_colors', '~> 0.5.5'
+  gem 'capistrano-ext', '~> 1.2.1'
+  gem 'capybara', '~> 2.1.0'
+  gem 'capybara-webkit', '~> 0.14.2'
+  gem 'database_cleaner', '~> 0.9.1'
+  gem 'factory_girl_rails', '~> 4.2.1'
+  gem 'rspec-rails', '~> 2.13.1'
+  gem 'rvm-capistrano', '~> 1.3.0'
+  gem 'spork-rails', '~> 3.2.1'
+  gem 'sunspot_solr', '~> 2.0.0'
 end
 
 group :development do
-  gem 'awesome_print'
-  gem 'growl'
-  gem 'guard-rspec'
-  gem 'guard-spork'
-  gem 'progress_bar'
-  gem 'pry-rails'
-  gem 'quiet_assets'
-  gem 'rb-fsevent', '~> 0.9.1' # Guard で使用
-  gem 'thin'
+  gem 'awesome_print', '~> 1.1.0'
+  gem 'growl', '~> 1.0.3'
+  gem 'guard-rspec', '~> 3.0.0'
+  gem 'guard-spork', '~> 1.5.0'
+  gem 'progress_bar', '~> 1.0.0'
+  gem 'pry-rails', '~> 0.3.0'
+  gem 'quiet_assets', '~> 1.0.2'
+  gem 'rb-fsevent', '~> 0.9.3' # Guard で使用
+  gem 'thin', '~> 1.5.1'
 end
 
 group :production do
-  gem 'unicorn'
+  gem 'unicorn', '~> 4.6.2'
 end
