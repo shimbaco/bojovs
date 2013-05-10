@@ -41,19 +41,14 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.2.1'
   gem 'rspec-rails', '~> 2.13.1'
   gem 'rvm-capistrano', '~> 1.3.0'
-  gem 'spork-rails', '~> 3.2.1'
   gem 'sunspot_solr', '~> 2.0.0'
 end
 
 group :development do
   gem 'awesome_print', '~> 1.1.0'
-  gem 'growl', '~> 1.0.3'
-  gem 'guard-rspec', '~> 3.0.0'
-  gem 'guard-spork', '~> 1.5.0'
   gem 'progress_bar', '~> 1.0.0'
   gem 'pry-rails', '~> 0.3.0'
   gem 'quiet_assets', '~> 1.0.2'
-  gem 'rb-fsevent', '~> 0.9.3' # Guard で使用
   gem 'thin', '~> 1.5.1'
 end
 
