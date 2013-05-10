@@ -4,26 +4,17 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-# Assets
 gem 'bootstrap-sass', '~> 2.3.1.0'
-gem 'jquery-rails', '~> 2.2.1'
-
-# Controllers
-gem 'devise', '~> 2.2.4'
-
-# Models
-gem 'mysql2', '~> 0.3.11'
-gem 'sunspot_rails', '~> 2.0.0'
-
-# Views
 gem 'bourbon', '~> 3.1.6'
+gem 'devise', '~> 2.2.4'
+gem 'exception_notification', '~> 3.0.1'
+gem 'jquery-rails', '~> 2.2.1'
+gem 'mysql2', '~> 0.3.11'
 gem 'pygments.rb', '~> 0.5.0'
 gem 'redcarpet', '~> 2.2.2'
 gem 'simple_form', '~> 2.1.0'
 gem 'slim-rails', '~> 1.1.1'
-
-# Utils
-gem 'exception_notification', '~> 3.0.1'
+gem 'sunspot_rails', '~> 2.0.0'
 gem 'yettings', '~> 0.1.1'
 
 
