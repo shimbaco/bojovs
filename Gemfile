@@ -50,6 +50,7 @@ group :development do
   gem 'pry-rails', '~> 0.3.0'
   gem 'quiet_assets', '~> 1.0.2'
   gem 'thin', '~> 1.5.1'
+  gem 'zeus', '~> 0.13.3'
 end
 
 group :production do
