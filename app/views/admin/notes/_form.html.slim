@@ -1,6 +1,11 @@
 = simple_form_for [:admin, @note], html: { class: 'form-horizontal' } do |f|
   = f.input :title, autofocus: true, input_html: { class: 'input-xxlarge' }
-  = f.input :body, input_html: { class: 'input-xxlarge' }
+  .control-group
+    = label_tag nil, class: 'string required control-label' do
+      abbr title='required' *
+      = " #{t('activerecord.attributes.note.body')}"
+    #note-body.controls.input-xxlarge
+  = f.input :body, as: :hidden
   = f.input :slug, input_html: { class: 'input-xxlarge' }
   = f.input :published_at
   = f.input :published, as: :boolean, label: false, inline_label: true
